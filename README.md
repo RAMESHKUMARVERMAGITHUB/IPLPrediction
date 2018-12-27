@@ -1,5 +1,5 @@
 # IPLPrediction #
-Predicting results of IPL Match using data collected from previous matches.Currently works with prediction matches based on IPL 2015 data.
+Predicting results of Indian Premier League(IPL) cricket match using data collected from previous matches.Currently works with predicting matches based on IPL 2015 data.
 
 ## Requirements ##
 1. Python 3
