@@ -1,3 +1,4 @@
 flask
+pandas
 #Flask==2.0.2
 #Werkzeug==1.0.1
