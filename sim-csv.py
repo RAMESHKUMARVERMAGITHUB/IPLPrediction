@@ -25,17 +25,28 @@ wickets2=0
 
 cp = pd.read_csv('cp1.csv')       #Contains the cluster probabilities
 cm = pd.DataFrame(columns=['BatclustNo','BowlclustNo','0s', '1s', '2s', '3s', '4s',  '6s','Out']) #Creating a copy of cp dataframe
+# for i in range(len(cp)):
+#     cm.loc[i] = [None for n in range(9)]
+#     cm.loc[i].BatclustNo = cp.loc[i].BatclustNo	       
+#     cm.loc[i].BowlclustNo = cp.loc[i].BowlclustNo
+#     cm.loc[i]['0s'] = float(cp.loc[i]['0s'])                            #Finding cumulative probabilities
+#     cm.loc[i]['1s'] = float(cp.loc[i]['1s']) + float(cp.loc[i]['0s'])
+#     cm.loc[i]['2s'] = float(cp.loc[i]['2s']) + float(cm.loc[i]['1s'])
+#     cm.loc[i]['3s'] = float(cp.loc[i]['3s']) + float(cm.loc[i]['2s'])
+#     cm.loc[i]['4s'] = float(cp.loc[i]['4s']) + float(cm.loc[i]['3s'])
+#     cm.loc[i]['6s'] = float(cp.loc[i]['6s']) + float(cm.loc[i]['4s'])
+#     cm.loc[i].Out = 1
 for i in range(len(cp)):
-    cm.loc[i] = [None for n in range(9)]
-    cm.loc[i].BatclustNo = cp.loc[i].BatclustNo	       
-    cm.loc[i].BowlclustNo = cp.loc[i].BowlclustNo
-    cm.loc[i]['0s'] = float(cp.loc[i]['0s'])                            #Finding cumulative probabilities
-    cm.loc[i]['1s'] = float(cp.loc[i]['1s']) + float(cp.loc[i]['0s'])
-    cm.loc[i]['2s'] = float(cp.loc[i]['2s']) + float(cm.loc[i]['1s'])
-    cm.loc[i]['3s'] = float(cp.loc[i]['3s']) + float(cm.loc[i]['2s'])
-    cm.loc[i]['4s'] = float(cp.loc[i]['4s']) + float(cm.loc[i]['3s'])
-    cm.loc[i]['6s'] = float(cp.loc[i]['6s']) + float(cm.loc[i]['4s'])
-    cm.loc[i].Out = 1
+    cm.loc[i, 'BatclustNo'] = cp.loc[i, 'BatclustNo']
+    cm.loc[i, 'BowlclustNo'] = cp.loc[i, 'BowlclustNo']
+    cm.loc[i, '0s'] = float(cp.loc[i, '0s'])
+    cm.loc[i, '1s'] = float(cp.loc[i, '1s']) + float(cp.loc[i, '0s'])
+    cm.loc[i, '2s'] = float(cp.loc[i, '2s']) + float(cm.loc[i, '1s'])
+    cm.loc[i, '3s'] = float(cp.loc[i, '3s']) + float(cm.loc[i, '2s'])
+    cm.loc[i, '4s'] = float(cp.loc[i, '4s']) + float(cm.loc[i, '3s'])
+    cm.loc[i, '6s'] = float(cp.loc[i, '6s']) + float(cm.loc[i, '4s'])
+    cm.loc[i, 'Out'] = 1
+
 
 def getScore(batsman,bowler):
     ptr = random.random()          #Generating random number between 0.0 and 1
