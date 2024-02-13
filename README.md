@@ -1,3 +1,8 @@
+#by ramesh
+fallow jenkinsfile  and dockerfile
+
+
+
 # IPLPrediction #
 Predicting results of Indian Premier League(IPL) cricket match using data collected from previous matches.Currently works with predicting matches based on IPL 2015 data.
 
